@@ -1,0 +1,8 @@
+# Additional plugins
+node_modules/
+
+# Mac OS
+.DS_Store
+
+# VS Code
+.code-workspace
