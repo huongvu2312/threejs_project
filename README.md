@@ -6,6 +6,8 @@ The main theme of the project is a museum exhibition, in which each art model wi
 
 All models are taken from [Geoffrey Marchal](https://sketchfab.com/geoffreymarchal) under CC Attribution-NonCommercial-ShareAlike.
 
+The format of the model is glTF (GL Transmission Format), the [recommended format of the official three.js documentation](https://threejs.org/docs/#manual/en/introduction/Loading-3D-models).
+
 # Team members
 
 - Huong, Vu
