@@ -28,4 +28,4 @@ The format of the model is glTF (GL Transmission Format), the [recommended forma
 
 `npx vite`
 
-- Go to http://localhost:5173 to see the website
+- Go to http://localhost:5173/museum.html to see the website

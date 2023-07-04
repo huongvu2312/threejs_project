@@ -38,7 +38,8 @@ function init() {
 
   // every object is initially created at ( 0, 0, 0 )
   // move the camera back so we can view the scene
-  camera.position.set(0, 0, 10);
+  camera.position.set(0, 0, 100);
+  camera.lookAt(0, 0, 0);
 
   /**
    * LIGHT
@@ -61,6 +62,7 @@ function init() {
     "/assets/models/perseus_fighting_medusa/scene.gltf",
     function (gltf) {
       // gltf.scene.scale.set(0.001, 0.001, 0.001);
+      gltf.side = THREE.DoubleSide;
 
       // Add model to the scene
       scene.add(gltf.scene);
