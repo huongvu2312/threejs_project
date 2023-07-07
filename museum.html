@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link href="styles/museum.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
 <body>
     <header class="header">
         <a href="#" class="logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/1951/1951156.png" alt="web's logo" >
+            <img src="assets/icons/logo.png" alt="web's logo" >
         </a>
 
         <nav class="navbar">
@@ -25,13 +25,13 @@
         </nav>
 
         <div class="icons">
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fa fa-search" id="search-btn"></div>
+            <div class="fa fa-bars" id="menu-btn"></div>
         </div>
 
         <div class="search-form">
             <input type="search" id="search-box" placeholder="search here...">
-            <label for="search-box" class="fas fa-search"></label>
+            <label for="search-box" class="fa fa-search"></label>
         </div>
 
     </header>
@@ -48,13 +48,13 @@
 
         <div class="row">
             <div class="image">
-                <img src=https://media.britishmuseum.org/media/Repository/Documents/2014_10/9_11/30ce053c_9c6a_4c25_8835_a3bf00bb5fbb/mid_00507191_001.jpg>
+                <img src="assets/icons/photo2.jpg">
             </div>
 
             <div class="content">
                 <h3>what makes our museum special?</h3>
                 <p><em>The Museum's extensive expertise in cultural history makes us the leading research museum in Germany. We also have Germany's largest archaeological and ethnographic collections – from the Stone Age, the Viking Age, the Middle Ages and up to recent times. We are one of the first museums to provide a broad, yet integrated perspective of pan-Asian cultures and civilizations.</em></p>
-                <p><em>The international Museum is located in the city center of Berlin. Our tagline is: ‘where Asian cultures come alive!’.</em></p>
+                <p><em>The international Museum is located in the city center of Berlin. Our tagline is: "where Asian cultures come alive!".</em></p>
             </div>
         </div>
     </section>
@@ -63,8 +63,8 @@
         <h1 class="heading">our <span>galleries</span></h1>
     </section>
 
-    <!-- <div id="container"></div> -->
-    <script src="types/script.js"></script>
+    <div id="container"></div> 
+    <script src="src/script.js"></script>
     <script type="module" src="src/museum.js"></script>
 </body>
 

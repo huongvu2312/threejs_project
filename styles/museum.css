@@ -5,44 +5,46 @@
     --border: .1rem solid rgba(255, 255, 255, .3);
 }
 
-*{
+* {
     font-family: Georgia;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    outline: none; border: none;
+    outline: none;
+    border: none;
     text-decoration: none;
     text-transform: capitalize;
 }
 
-html{
+html {
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-padding-top: 9rem;
     scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     width: .8rem;
 }
 
-html::-webkit-scrollbar-track{
+html::-webkit-scrollbar-track {
     background: transparent;
 }
 
-html::-webkit-scrollbar-thumb{
+html::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 5rem;
 }
 
-body{
+body {
     background: var(--bg);
 }
 
-section{
+section {
     padding: 2rem;
 }
 
-.heading{
+.heading {
     text-align: center;
     color: #fff;
     text-transform: uppercase;
@@ -51,56 +53,59 @@ section{
     font-size: 4rem;
 }
 
-.heading span{
+.heading span {
     color: var(--main-color);
     text-transform: uppercase;
 }
 
-.header{
+.header {
     background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 7%;
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
-.header .logo img{
+.header .logo img {
     height: 6rem;
 }
 
-.header .navbar a{
+.header .navbar a {
     margin: 0 1rem;
     font-size: 1.6rem;
     color: #fff;
 }
 
-.header .navbar a:hover{
+.header .navbar a:hover {
     color: var(--main-color);
     border-bottom: .1rem solid var(--main-color);
     padding-bottom: .5rem;
 }
 
-.header .icons div{
+.header .icons div {
     color: #fff;
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
 }
 
-.header .icons div:hover{
+.header .icons div:hover {
     color: var(--main-color);
 }
 
-#menu-btn{
+#menu-btn {
     display: none;
 }
 
-.header .search-form{
+.header .search-form {
     position: absolute;
-    top: 115%; right: 7%;
+    top: 115%;
+    right: 7%;
     background: #a4816a;
     width: 50rem;
     height: 4.5rem;
@@ -110,59 +115,60 @@ section{
     transform-origin: top;
 }
 
-.header .search-form.active{
+.header .search-form.active {
     transform: scaleY(1);
 }
 
-.header .search-form input{
+.header .search-form input {
     height: 100%;
     width: 100%;
     font-size: 1.6rem;
     color: var(--black);
-    background:#ffffff ;
+    background: #ffffff;
     padding: 1rem;
     text-transform: none;
 }
 
-.header .search-form label{
+.header .search-form label {
     cursor: pointer;
     font-size: 2.2rem;
     margin-right: 1.5rem;
     color: var(--black);
 }
 
-.header .search-form label:hover{
+.header .search-form label:hover {
     color: var(--main-color);
 }
 
 @media (max-width: 991px) {
-    html{
+    html {
         font-size: 55%;
     }
 
-    .header{
-        padding: 1.5rem 2rem; 
+    .header {
+        padding: 1.5rem 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    #menu-btn{
+    #menu-btn {
         display: inline-block;
     }
 
-    .header .navbar{
+    .header .navbar {
         position: absolute;
-        top: 100%; right: -100%;
+        top: 100%;
+        right: -100%;
         background: #ffe7d7;
         width: 30rem;
         height: calc(100vh - 9.5rem);
     }
 
-    .header .navbar.active{
+    .header .navbar.active {
         right: 0;
     }
 
-    .header .navbar a{
+    .header .navbar a {
         color: var(--black);
         display: block;
         margin: 1.5rem;
@@ -170,54 +176,54 @@ section{
         font-size: 2rem;
     }
 
-    .header .search-form{
+    .header .search-form {
         width: 90%;
         right: 2rem;
     }
 
-    .home{
+    .home {
         background-position: left;
         justify-content: center;
-        text-align: center; 
+        text-align: center;
     }
 
-    .home .content h3{
+    .home .content h3 {
         font-size: 4.5rem;
     }
 
-    .home .content p{
+    .home .content p {
         font-size: 1.5rem;
     }
 }
 
 @media (max-width:450px) {
-    html{
+    html {
         font-size: 50%;
     }
 
 }
 
-.home{
+.home {
     min-height: 80rem;
     display: flex;
     align-items: center;
-    background: url(https://images.unsplash.com/photo-1583306346437-f2143c0f11fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dGhlJTIwbWV0cm9wb2xpdGFuJTIwbXVzZXVtJTIwb2YlMjBhcnR8ZW58MHx8MHx8fDA%3D&w=1000&q=80) no-repeat;
+    background: url("/assets/icons/photo1.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.home .content{
+.home .content {
     max-width: 50rem;
 
 }
 
-.home .content h3{
+.home .content h3 {
     font-size: 6rem;
     text-transform: uppercase;
     color: #fff;
 }
 
-.home .content p{
+.home .content p {
     font-size: 1.7rem;
     font-weight: lighter;
     text-transform: none;
@@ -227,33 +233,33 @@ section{
     color: #ffffff;
 }
 
-.about .row{
+.about .row {
     display: flex;
     align-items: center;
     background: var(--black);
     flex-wrap: wrap;
 }
 
-.about .row .image{
+.about .row .image {
     flex: 1 1 45rem;
 }
 
-.about .row .image img{
+.about .row .image img {
     width: 100%;
 }
 
-.about .row .content{
+.about .row .content {
     flex: 1 1 45rem;
     padding: 2rem;
 }
 
-.about .row .content h3{
+.about .row .content h3 {
     font-size: 4.5rem;
     color: #fff;
     padding-bottom: 2rem;
 }
 
-.about .row .content p{
+.about .row .content p {
     font-size: 1.6rem;
     color: #ccc;
     padding: 1rem 0;

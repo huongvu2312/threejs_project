@@ -23,7 +23,7 @@ function init() {
   scene = new THREE.Scene();
 
   // Set the background color
-  scene.background = new THREE.Color("skyblue");
+  scene.background = new THREE.Color("#F3E6D8");
 
   /**
    * CAMERA
@@ -32,7 +32,7 @@ function init() {
   const fov = 35; // AKA Field of View
   const aspect = modelContainer.clientWidth / modelContainer.clientHeight;
   const near = 0.1; // the near clipping plane
-  const far = 100; // the far clipping plane
+  const far = 1000; // the far clipping plane
 
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
@@ -78,11 +78,13 @@ function init() {
   );
 
   // Test for something other than model
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  /**const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
   const cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
+  */
 
+  
   /**
    * RENDER
    */
