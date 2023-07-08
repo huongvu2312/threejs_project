@@ -6,20 +6,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
-    <style>
-        body {
-            color: #444;
-            background: #fff;
-        }
+    <link href="styles/museum.css" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-        a {
-            color: #08f;
-        }
-    </style>
 </head>
 
 <body>
-    <div id="container"></div>
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="assets/icons/logo.png" alt="web's logo" >
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#galleries">galleries</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fa fa-search" id="search-btn"></div>
+            <div class="fa fa-bars" id="menu-btn"></div>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fa fa-search"></label>
+        </div>
+
+    </header>
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>international historical museum</h3>
+            <p><em>“… what is important is not so much what people see in the gallery or the museum, but what people see after looking at these things, how they confront reality again. Really great art regenerates the perception of reality; the reality becomes richer, better or not, just different.” ~ Gabriel Orozco</em></p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h1 class="heading"> <span>about</span> us</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="assets/icons/photo2.jpg">
+            </div>
+
+            <div class="content">
+                <h3>what makes our museum special?</h3>
+                <p><em>The Museum's extensive expertise in cultural history makes us the leading research museum in Germany. We also have Germany's largest archaeological and ethnographic collections – from the Stone Age, the Viking Age, the Middle Ages and up to recent times. We are one of the first museums to provide a broad, yet integrated perspective of pan-Asian cultures and civilizations.</em></p>
+                <p><em>The international Museum is located in the city center of Berlin. Our tagline is: "where Asian cultures come alive!".</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="galleries" id="galleries">
+        <h1 class="heading">our <span>galleries</span></h1>
+    </section>
+
+    <div id="container"></div> 
+    <script src="src/script.js"></script>
     <script type="module" src="src/museum.js"></script>
 </body>
 
