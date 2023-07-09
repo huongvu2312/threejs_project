@@ -2,19 +2,18 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import modelInfo from "/assets/info.json" assert { type: "json" };
 
-let scene, renderer, camera;
+let scene, renderer, camera, loader, currentModel;
 
 init();
-render();
 
 function init() {
   /**
    * CONTAINER
    */
-  const container = document.getElementById("container");
+  const container = document.getElementById("threejs");
   const modelContainer = document.createElement("div");
-  modelContainer.style.width = "500px";
-  modelContainer.style.height = "300px";
+  modelContainer.style.width = window.innerWidth / 2;
+  modelContainer.style.height = window.innerHeight / 2;
   container.appendChild(modelContainer);
 
   /**
@@ -32,7 +31,7 @@ function init() {
   const fov = 35; // AKA Field of View
   const aspect = modelContainer.clientWidth / modelContainer.clientHeight;
   const near = 0.1; // the near clipping plane
-  const far = 1000; // the far clipping plane
+  const far = 10000; // the far clipping plane
 
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
@@ -40,6 +39,8 @@ function init() {
   // move the camera back so we can view the scene
   camera.position.set(0, 0, 100);
   camera.lookAt(0, 0, 0);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
   /**
    * LIGHT
@@ -54,18 +55,15 @@ function init() {
   /**
    * MODEL
    */
-  const loader = new GLTFLoader();
+  loader = new GLTFLoader();
 
   // Load model
   loader.load(
-    // "/assets/models/" + model.path + "/scene.gltf",
     "/assets/models/perseus_fighting_medusa/scene.gltf",
     function (gltf) {
-      // gltf.scene.scale.set(0.001, 0.001, 0.001);
-      gltf.side = THREE.DoubleSide;
-
       // Add model to the scene
-      scene.add(gltf.scene);
+      currentModel = gltf.scene;
+      scene.add(currentModel);
 
       render();
     },
@@ -77,21 +75,13 @@ function init() {
     }
   );
 
-  // Test for something other than model
-  /**const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-  */
-
-  
   /**
    * RENDER
    */
   renderer = new THREE.WebGLRenderer();
 
   // Set the renderer to the same size as our container element
-  renderer.setSize(500, 300);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
   // Set the pixel ratio so that our scene will look good on HiDPI displays
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -102,21 +92,74 @@ function init() {
   // Add the automatically created <canvas> element to the page
   modelContainer.appendChild(renderer.domElement);
 
-  // render();
+  render();
 
   window.addEventListener("resize", onWindowResize);
+  document.getElementById("prev").addEventListener("click", function () {
+    onClick(true);
+  });
+  document.getElementById("next").addEventListener("click", function () {
+    onClick(false);
+  });
 }
 
+/**
+ * Render, or 'create a still image', of the scene
+ */
+function render() {
+  renderer.render(scene, camera);
+}
+
+/**
+ * Render when changing window size
+ */
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
   render();
 }
 
-// Render, or 'create a still image', of the scene
-function render() {
-  renderer.render(scene, camera);
+/**
+ * Render a new image onclick
+ */
+function onClick(isPrev) {
+  // Get current modelID
+  const modelIDInput = document.getElementById("model-id");
+  let modelID = modelIDInput.value;
+
+  // Get required modelID
+  if (isPrev) {
+    modelID = parseInt(modelID) - 1;
+  } else modelID = parseInt(modelID) + 1;
+
+  // If modelID goes outside the range of modelInfo => update it accordingly
+  const lastModelID = modelInfo.length - 1;
+  if (modelID < 0) modelID = lastModelID;
+  if (modelID > lastModelID) modelID = 0;
+
+  // Load canvas
+  const modelPath = "/assets/models/" + modelInfo[modelID].path + "/scene.gltf";
+  scene.remove(currentModel);
+  loader.load(
+    modelPath,
+    function (gltf) {
+      // Add model to the scene
+      currentModel = gltf.scene;
+      scene.add(gltf.scene);
+      camera.updateProjectionMatrix();
+      render();
+    },
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
+
+  // Update modelID in input
+  modelIDInput.value = modelID;
 }
