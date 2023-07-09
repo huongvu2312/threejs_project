@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import modelInfo from "/assets/info.json" assert { type: "json" };
 
-let scene, renderer, camera;
+let scene, renderer, camera, loader;
 
 init();
 
@@ -55,16 +55,12 @@ function init() {
   /**
    * MODEL
    */
-  const loader = new GLTFLoader();
+  loader = new GLTFLoader();
 
   // Load model
   loader.load(
-    // "/assets/models/" + model.path + "/scene.gltf",
     "/assets/models/perseus_fighting_medusa/scene.gltf",
     function (gltf) {
-      // gltf.scene.scale.set(0.001, 0.001, 0.001);
-      gltf.side = THREE.DoubleSide;
-
       // Add model to the scene
       scene.add(gltf.scene);
 
@@ -105,8 +101,12 @@ function init() {
   render();
 
   window.addEventListener("resize", onWindowResize);
-  document.getElementById("prev").addEventListener("click", onClick(true));
-  document.getElementById("next").addEventListener("click", onClick(false));
+  document.getElementById("prev").addEventListener("click", function () {
+    onClick(true);
+  });
+  document.getElementById("next").addEventListener("click", function () {
+    onClick(false);
+  });
 }
 
 /**
@@ -132,5 +132,38 @@ function onWindowResize() {
  * Render a new image onclick
  */
 function onClick(isPrev) {
-  console.log("hey");
+  // Get current modelID
+  const modelIDInput = document.getElementById("model-id");
+  let modelID = modelIDInput.value;
+
+  // Get required modelID
+  if (isPrev) {
+    modelID = parseInt(modelID) - 1;
+  } else modelID = parseInt(modelID) + 1;
+
+  // If modelID goes outside the range of modelInfo => update it accordingly
+  const lastModelID = modelInfo.length - 1;
+  if (modelID < 0) modelID = lastModelID;
+  if (modelID > lastModelID) modelID = 0;
+
+  // Load canvas
+  const modelPath = "/assets/models/" + modelInfo[modelID].path + "/scene.gltf";
+  loader.load(
+    modelPath,
+    function (gltf) {
+      // Add model to the scene
+      scene.add(gltf.scene);
+      camera.updateProjectionMatrix();
+      render();
+    },
+    function (xhr) {
+      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    function (error) {
+      console.error(error);
+    }
+  );
+
+  // Update modelID in input
+  modelIDInput.value = modelID;
 }
