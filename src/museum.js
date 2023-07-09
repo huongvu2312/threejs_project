@@ -5,7 +5,6 @@ import modelInfo from "/assets/info.json" assert { type: "json" };
 let scene, renderer, camera;
 
 init();
-render();
 
 function init() {
   /**
@@ -40,6 +39,8 @@ function init() {
   // move the camera back so we can view the scene
   camera.position.set(0, 0, 100);
   camera.lookAt(0, 0, 0);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
   /**
    * LIGHT
@@ -101,11 +102,23 @@ function init() {
   // Add the automatically created <canvas> element to the page
   modelContainer.appendChild(renderer.domElement);
 
-  // render();
+  render();
 
   window.addEventListener("resize", onWindowResize);
+  document.getElementById("prev").addEventListener("click", onClick(true));
+  document.getElementById("next").addEventListener("click", onClick(false));
 }
 
+/**
+ * Render, or 'create a still image', of the scene
+ */
+function render() {
+  renderer.render(scene, camera);
+}
+
+/**
+ * Render when changing window size
+ */
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -115,7 +128,9 @@ function onWindowResize() {
   render();
 }
 
-// Render, or 'create a still image', of the scene
-function render() {
-  renderer.render(scene, camera);
+/**
+ * Render a new image onclick
+ */
+function onClick(isPrev) {
+  console.log("hey");
 }
