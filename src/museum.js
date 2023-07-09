@@ -11,10 +11,10 @@ function init() {
   /**
    * CONTAINER
    */
-  const container = document.getElementById("container");
+  const container = document.getElementById("threejs");
   const modelContainer = document.createElement("div");
-  modelContainer.style.width = "500px";
-  modelContainer.style.height = "300px";
+  modelContainer.style.width = window.innerWidth / 2;
+  modelContainer.style.height = window.innerHeight / 2;
   container.appendChild(modelContainer);
 
   /**
@@ -32,7 +32,7 @@ function init() {
   const fov = 35; // AKA Field of View
   const aspect = modelContainer.clientWidth / modelContainer.clientHeight;
   const near = 0.1; // the near clipping plane
-  const far = 1000; // the far clipping plane
+  const far = 10000; // the far clipping plane
 
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
@@ -84,14 +84,13 @@ function init() {
   scene.add(cube);
   */
 
-  
   /**
    * RENDER
    */
   renderer = new THREE.WebGLRenderer();
 
   // Set the renderer to the same size as our container element
-  renderer.setSize(500, 300);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
   // Set the pixel ratio so that our scene will look good on HiDPI displays
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -111,7 +110,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
   render();
 }

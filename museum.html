@@ -8,13 +8,14 @@
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link href="styles/museum.css" rel="stylesheet">
     <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <header class="header">
         <a href="#" class="logo">
-            <img src="assets/icons/logo.png" alt="web's logo" >
+            <img src="assets/icons/logo.png" alt="web's logo">
         </a>
 
         <nav class="navbar">
@@ -39,7 +40,10 @@
     <section class="home" id="home">
         <div class="content">
             <h3>international historical museum</h3>
-            <p><em>“… what is important is not so much what people see in the gallery or the museum, but what people see after looking at these things, how they confront reality again. Really great art regenerates the perception of reality; the reality becomes richer, better or not, just different.” ~ Gabriel Orozco</em></p>
+            <p><em>“… what is important is not so much what people see in the gallery or the museum, but what people see
+                    after looking at these things, how they confront reality again. Really great art regenerates the
+                    perception of reality; the reality becomes richer, better or not, just different.” ~ Gabriel
+                    Orozco</em></p>
         </div>
     </section>
 
@@ -53,17 +57,38 @@
 
             <div class="content">
                 <h3>what makes our museum special?</h3>
-                <p><em>The Museum's extensive expertise in cultural history makes us the leading research museum in Germany. We also have Germany's largest archaeological and ethnographic collections – from the Stone Age, the Viking Age, the Middle Ages and up to recent times. We are one of the first museums to provide a broad, yet integrated perspective of pan-Asian cultures and civilizations.</em></p>
-                <p><em>The international Museum is located in the city center of Berlin. Our tagline is: "where Asian cultures come alive!".</em></p>
+                <p><em>The Museum's extensive expertise in cultural history makes us the leading research museum in
+                        Germany. We also have Germany's largest archaeological and ethnographic collections – from the
+                        Stone Age, the Viking Age, the Middle Ages and up to recent times. We are one of the first
+                        museums to provide a broad, yet integrated perspective of pan-Asian cultures and
+                        civilizations.</em></p>
+                <p><em>The international Museum is located in the city center of Berlin. Our tagline is: "where Asian
+                        cultures come alive!".</em></p>
             </div>
         </div>
     </section>
 
+
     <section class="galleries" id="galleries">
         <h1 class="heading">our <span>galleries</span></h1>
+        <div class="row justify-content-center align-items-center">
+            <div class="col col-sm-2 text-center">
+                <button class="btn bg-info w-50 h-50">
+                    <i class="fa fa-caret-left" style="font-size: 2rem;"></i>
+                </button>
+            </div>
+            <div class="col">
+                <div id="threejs"></div>
+            </div>
+            <div class="col col-sm-2 text-center">
+                <button class="btn bg-info w-50 h-50">
+                    <i class="fa fa-caret-right" style="font-size: 2rem;"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
-    <div id="container"></div> 
+
     <script src="src/script.js"></script>
     <script type="module" src="src/museum.js"></script>
 </body>
