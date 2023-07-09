@@ -29,3 +29,5 @@ The format of the model is glTF (GL Transmission Format), the [recommended forma
 `npx vite`
 
 - Go to http://localhost:5173/museum.html to see the website
+
+## Note: The default link is a clone of an Miku dance example on threejs.
