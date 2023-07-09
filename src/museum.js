@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import modelInfo from "/assets/info.json" assert { type: "json" };
 
-let scene, renderer, camera, loader;
+let scene, renderer, camera, loader, currentModel;
 
 init();
 
@@ -62,7 +62,8 @@ function init() {
     "/assets/models/perseus_fighting_medusa/scene.gltf",
     function (gltf) {
       // Add model to the scene
-      scene.add(gltf.scene);
+      currentModel = gltf.scene;
+      scene.add(currentModel);
 
       render();
     },
@@ -73,13 +74,6 @@ function init() {
       console.error(error);
     }
   );
-
-  // Test for something other than model
-  /**const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-  */
 
   /**
    * RENDER
@@ -148,10 +142,12 @@ function onClick(isPrev) {
 
   // Load canvas
   const modelPath = "/assets/models/" + modelInfo[modelID].path + "/scene.gltf";
+  scene.remove(currentModel);
   loader.load(
     modelPath,
     function (gltf) {
       // Add model to the scene
+      currentModel = gltf.scene;
       scene.add(gltf.scene);
       camera.updateProjectionMatrix();
       render();
