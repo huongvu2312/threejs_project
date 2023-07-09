@@ -65,6 +65,9 @@ function init() {
       currentModel = gltf.scene;
       scene.add(currentModel);
 
+      // Add info
+      document.getElementById("model-content").innerHTML = modelInfo[0].info;
+
       render();
     },
     function (xhr) {
@@ -149,6 +152,11 @@ function onClick(isPrev) {
       // Add model to the scene
       currentModel = gltf.scene;
       scene.add(gltf.scene);
+
+      // Add info
+      document.getElementById("model-content").innerHTML =
+        modelInfo[modelID].info;
+
       camera.updateProjectionMatrix();
       render();
     },
