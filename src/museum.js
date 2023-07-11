@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import modelInfo from "/assets/info.json" assert { type: "json" };
 
-let scene, renderer, camera, loader, currentModel;
+let scene, renderer, camera, loader, currentModel, controls;
 
 init();
 
@@ -65,6 +66,9 @@ function init() {
       currentModel = gltf.scene;
       scene.add(currentModel);
 
+      // Add info
+      document.getElementById("model-content").innerHTML = modelInfo[0].info;
+
       render();
     },
     function (xhr) {
@@ -92,6 +96,10 @@ function init() {
   // Add the automatically created <canvas> element to the page
   modelContainer.appendChild(renderer.domElement);
 
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.addEventListener("change", render);
+  controls.update();
+
   render();
 
   window.addEventListener("resize", onWindowResize);
@@ -116,6 +124,7 @@ function render() {
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+  controls.update();
 
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
@@ -149,7 +158,13 @@ function onClick(isPrev) {
       // Add model to the scene
       currentModel = gltf.scene;
       scene.add(gltf.scene);
+
+      // Add info
+      document.getElementById("model-content").innerHTML =
+        modelInfo[modelID].info;
+
       camera.updateProjectionMatrix();
+      controls.update();
       render();
     },
     function (xhr) {
