@@ -69,20 +69,26 @@ function init() {
       const Bounding_Box = new THREE.Box3().setFromObject(gltf.scene);
       const center = Bounding_Box.getCenter(new THREE.Vector3());
 
-    // Offset the model's position to center it
-    gltf.scene.position.sub(center);
+      // Offset the model's position to center it
+      gltf.scene.position.sub(center);
 
-    // Add model to the scene
-    scene.add(gltf.scene);
+      // Add model to the scene
+      currentModel = gltf.scene;
+      scene.add(currentModel);
 
-    // Adjust the camera position to view the entire model
-    const maxDimension = Math.max(Bounding_Box.max.x - Bounding_Box.min.x, Bounding_Box.max.y - Bounding_Box.min.y, Bounding_Box.max.z - Bounding_Box.min.z);
-    const distance = maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-    camera.position.z = distance;
+      // Adjust the camera position to view the entire model
+      const maxDimension = Math.max(
+        Bounding_Box.max.x - Bounding_Box.min.x,
+        Bounding_Box.max.y - Bounding_Box.min.y,
+        Bounding_Box.max.z - Bounding_Box.min.z
+      );
+      const distance =
+        maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      camera.position.z = distance;
 
-    render();
+      render();
     },
-    
+
     function (xhr) {
       console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
     },
@@ -180,8 +186,13 @@ function onClick(isPrev) {
       scene.add(gltf.scene);
 
       // Adjust the camera position to view the entire model
-      const maxDimension = Math.max(Bounding_Box.max.x - Bounding_Box.min.x, Bounding_Box.max.y - Bounding_Box.min.y, Bounding_Box.max.z - Bounding_Box.min.z);
-      const distance = maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      const maxDimension = Math.max(
+        Bounding_Box.max.x - Bounding_Box.min.x,
+        Bounding_Box.max.y - Bounding_Box.min.y,
+        Bounding_Box.max.z - Bounding_Box.min.z
+      );
+      const distance =
+        maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
       camera.position.z = distance;
 
       // Add info
