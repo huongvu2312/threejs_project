@@ -140,11 +140,10 @@ function render() {
  * Render when changing window size
  */
 function onWindowResize() {
-  camera.aspect = 600 / 500;
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  controls.update();
 
-  renderer.setSize(600 / 500);
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
   render();
 }
