@@ -30,7 +30,7 @@ function init() {
    */
   // Create a camera
   const fov = 35; // AKA Field of View
-  const aspect = window.innerWidth / window.innerHeight;
+  const aspect = modelContainer.clientWidth / modelContainer.clientHeight;
   const near = 0.1; // the near clipping plane
   const far = 10000; // the far clipping plane
 
@@ -169,7 +169,20 @@ function onClick(isPrev) {
     function (gltf) {
       // Add model to the scene
       currentModel = gltf.scene;
+
+      const Bounding_Box = new THREE.Box3().setFromObject(gltf.scene);
+      const center = Bounding_Box.getCenter(new THREE.Vector3());
+
+      // Offset the model's position to center it
+      gltf.scene.position.sub(center);
+
+      // Add model to the scene
       scene.add(gltf.scene);
+
+      // Adjust the camera position to view the entire model
+      const maxDimension = Math.max(Bounding_Box.max.x - Bounding_Box.min.x, Bounding_Box.max.y - Bounding_Box.min.y, Bounding_Box.max.z - Bounding_Box.min.z);
+      const distance = maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      camera.position.z = distance;
 
       // Add info
       document.getElementById("model-content").innerHTML =
