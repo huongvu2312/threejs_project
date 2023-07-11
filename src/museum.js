@@ -13,8 +13,8 @@ function init() {
    */
   const container = document.getElementById("container");
   const modelContainer = document.createElement("div");
-  modelContainer.style.width = "500px";
-  modelContainer.style.height = "300px";
+  modelContainer.style.width = "600px";
+  modelContainer.style.height = "500px";
   container.appendChild(modelContainer);
 
   /**
@@ -29,9 +29,9 @@ function init() {
    * CAMERA
    */
   // Create a camera
-  const fov = 35; // AKA Field of View
-  const aspect = modelContainer.clientWidth / modelContainer.clientHeight;
-  const near = 0.1; // the near clipping plane
+  const fov = 50; // AKA Field of View
+  const aspect = window.innerWidth / window.innerHeight;
+  const near = 1; // the near clipping plane
   const far = 1000; // the far clipping plane
 
   camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
@@ -64,11 +64,24 @@ function init() {
       // gltf.scene.scale.set(0.001, 0.001, 0.001);
       gltf.side = THREE.DoubleSide;
 
-      // Add model to the scene
-      scene.add(gltf.scene);
+      // Calculate the bounding box of the model
+      const Bounding_Box = new THREE.Box3().setFromObject(gltf.scene);
+      const center = Bounding_Box.getCenter(new THREE.Vector3());
 
-      render();
+    // Offset the model's position to center it
+    gltf.scene.position.sub(center);
+
+    // Add model to the scene
+    scene.add(gltf.scene);
+
+    // Adjust the camera position to view the entire model
+    const maxDimension = Math.max(Bounding_Box.max.x - Bounding_Box.min.x, Bounding_Box.max.y - Bounding_Box.min.y, Bounding_Box.max.z - Bounding_Box.min.z);
+    const distance = maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    camera.position.z = distance;
+
+    render();
     },
+    
     function (xhr) {
       console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
     },
@@ -91,7 +104,7 @@ function init() {
   renderer = new THREE.WebGLRenderer();
 
   // Set the renderer to the same size as our container element
-  renderer.setSize(500, 300);
+  renderer.setSize(600, 500);
 
   // Set the pixel ratio so that our scene will look good on HiDPI displays
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -108,10 +121,10 @@ function init() {
 }
 
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = 600 / 500;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(600, 500);
 
   render();
 }
