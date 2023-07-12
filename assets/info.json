@@ -7,14 +7,20 @@
   },
   {
     "id": 1,
-    "path": "recumbent_lion",
-    "info": "Recumbent lion, Bertel Thorvaldsen (1770-1844) , statue in marble, after original model from 1825, Thorvaldsen museum (Copenhagen, Denmark). Made with Memento Beta (now Remake) from Autodesk.\nThroughout the ages, the lion has often been used in art as a symbolical guardian of one thing or another. This lion was originally created in order to watch over the memory of a famous man: the Austrian field marshal and diplomat Karl Philip Schwarzenberg (1771 - 1820). However, the memorial to which the lion was to have contributed was never completed.",
-    "link": "https://sketchfab.com/3d-models/recumbent-lion-455b37b9e58d43dba5b6c0ab269e242a"
+    "path": "baronesse_sipiere",
+    "info": "Bust of Baronesse Sipiere, Jean-Baptiste Carpeaux (1827-1875), Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta.",
+    "link": "https://sketchfab.com/3d-models/baronesse-sipiere-5bcbd594ff5340d3a1f705fa16caa392"
   },
   {
     "id": 2,
     "path": "the_three_graces",
     "info": "The Three Graces (1813-1814), Antonio Canova (?) (1757-1822), Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta (now ReMake) from AutoDesk.\nThe Three Graces, celebrated in classical literature and art, were the daughters of Jupiter (or Zeus in Greek mythology), and companions to the Muses. Thalia (youth and beauty) is accompanied by Euphrosyne (mirth), and Aglaia (elegance).It was commissioned from Antonio Canova by John Russel, 6th Duke of Bedford, who visited the sculptor in his studio in Rome in 1814, and was captivated by the group of the Three Graces which Canova had carved for the Empress Josephine, the estranged wife of Napoleon Bonaparte. She had died in May of that year, and the Duke offered to buy the group from Canova, but Josephine’s son claimed it, and that version is now in the Hermitage, St Petersburg.",
     "link": "https://sketchfab.com/3d-models/the-three-graces-437574a871ca4e56be5944d5f0390309"
+  },
+  {
+    "id": 3,
+    "path": "baptismal_angel_kneeling",
+    "info": "Baptismal Angel kneeling (1827-1828), Bertel Thorvaldsen, marble , Church of Our Lady (Copenhagen), Thorvaldsen Museum (Copenhagen, Denmark). Made with Memento Beta (now Remake) from Autodesk.",
+    "link": "https://sketchfab.com/3d-models/baptismal-angel-kneeling-f45f01c63e514d3bad846e82af640f33"
   }
 ]
