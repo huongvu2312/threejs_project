@@ -85,6 +85,8 @@ function init() {
       const distance =
         maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
       camera.position.z = distance;
+      // Add info
+      document.getElementById("model-content").innerHTML = modelInfo[0].info;
 
       render();
     },
@@ -142,6 +144,7 @@ function render() {
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+  controls.update();
 
   renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 
