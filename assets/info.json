@@ -19,9 +19,9 @@
   },
   {
     "id": 3,
-    "path": "baptismal_angel_kneeling",
-    "info": "Baptismal Angel kneeling (1827-1828), Bertel Thorvaldsen, marble , Church of Our Lady (Copenhagen), Thorvaldsen Museum (Copenhagen, Denmark). Made with Memento Beta (now Remake) from Autodesk.",
-    "link": "https://sketchfab.com/3d-models/baptismal-angel-kneeling-f45f01c63e514d3bad846e82af640f33"
+    "path": "the_dying_gaul",
+    "info": "The Dying Gaul, Greek, Hellenistic about 225 BC. Artist: Epigonos (?). The original bronze originally stood at Athena temple in Pergamon. Roman copy. Rome Museo Capitolino. The Royal Cast Collection (Copenhagen, Denmark). Made with Memento Beta.",
+    "link": "https://sketchfab.com/3d-models/the-dying-gaul-a5f7d0f2934344e68a4e0734359d069e"
   },
   {
     "id": 4,
@@ -34,6 +34,36 @@
     "path": "bust_of_a_roman",
     "info": "A roman, found in the Licinian Tomb in Rome, 150-160 A.D., Marble, Nye Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta. This bearded man is shown with bare shoulders. The tousled hair and curly beards have been executed with a wealth of detail. He may have been member of the Licinian family from the 2nd century A.D.",
     "link": "https://sketchfab.com/3d-models/bust-of-a-roman-c17ae64048004e0c97ebb2f1596eb8c8"
+  },
+  {
+    "id": 6,
+    "path": "aphrodite_decimated",
+    "info": "Aphrodite (1915) made by Einar Utzon-Frank. Museum of Thorvaldsens, Copenhagen, Denmark. Brass statue. Aphrodite is the Greek goddess of love, beauty, pleasure, and procreation. Her Roman equivalent is the goddess Venus. She is identified with the planet Venus. Aksel (Axel) Einar (Ejnar) Utzon-Frank (30 March 1888 – 15 July 1955) was a Danish sculptor and professor at the Royal Danish Academy of Fine Arts. During his lifetime, he produced a large number of sculptures, many of which stand as public monuments. He was the uncle of Pritzker Prize-winning architect Jørn Utzon.",
+    "link": "https://sketchfab.com/3d-models/aphrodite-decimated-e1a229e228014a389e5057ecf636543f"
+  },
+  {
+    "id": 7,
+    "path": "the_panther_hunter",
+    "info": "The panther hunter (1846), made by J.A. Jerichau (1816-1883), Nye Carlsberg Glyptotek (Copenhagen, Denmark). Made by Memento Beta (now ReMake) from AutoDesk.",
+    "link": "https://sketchfab.com/3d-models/the-panther-hunter-278d9c73ce6c487597ae344ec2042b1e"
+  },
+  {
+    "id": 8,
+    "path": "mermaid",
+    "info": "Mermaid (1921), Anne Marie Carl Nielsen (1863-1945), bronze, The National Gallery (Copenhagen, Denmark). Made with 210 pictures with Metashape from Agisoft.",
+    "link": "https://sketchfab.com/3d-models/mermaid-5db3c4c133904df6856b8323eea7d85a"
+  },
+  {
+    "id": 9,
+    "path": "siren",
+    "info": "The Siren (1889/1903) by Denys Puech (1854 - 1942). Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made out 500 pictures with Zephyr3D from 3Dflow.",
+    "link": "https://sketchfab.com/3d-models/siren-fc2e5c773d1c49b19294cd87de5d3795"
+  },
+  {
+    "id": 10,
+    "path": "prayer",
+    "info": "Prayer (1886), Guillaume Charlier (1854 - 1925), marble. Royal Museum of Fine Art of Belgium. Made of 500 pictures with Zephyr3D Lite 3DFlow.",
+    "link": "https://sketchfab.com/3d-models/prayer-c2062105a84249c08df30b0ec7a54914"
   }
 
 ]
