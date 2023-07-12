@@ -7,14 +7,62 @@
   },
   {
     "id": 1,
-    "path": "recumbent_lion",
-    "info": "Recumbent lion, Bertel Thorvaldsen (1770-1844) , statue in marble, after original model from 1825, Thorvaldsen museum (Copenhagen, Denmark). Made with Memento Beta (now Remake) from Autodesk.\nThroughout the ages, the lion has often been used in art as a symbolical guardian of one thing or another. This lion was originally created in order to watch over the memory of a famous man: the Austrian field marshal and diplomat Karl Philip Schwarzenberg (1771 - 1820). However, the memorial to which the lion was to have contributed was never completed.",
-    "link": "https://sketchfab.com/3d-models/recumbent-lion-455b37b9e58d43dba5b6c0ab269e242a"
+    "path": "baronesse_sipiere",
+    "info": "Bust of Baronesse Sipiere, Jean-Baptiste Carpeaux (1827-1875), Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta.",
+    "link": "https://sketchfab.com/3d-models/baronesse-sipiere-5bcbd594ff5340d3a1f705fa16caa392"
   },
   {
     "id": 2,
     "path": "the_three_graces",
     "info": "The Three Graces (1813-1814), Antonio Canova (?) (1757-1822), Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta (now ReMake) from AutoDesk.\nThe Three Graces, celebrated in classical literature and art, were the daughters of Jupiter (or Zeus in Greek mythology), and companions to the Muses. Thalia (youth and beauty) is accompanied by Euphrosyne (mirth), and Aglaia (elegance).It was commissioned from Antonio Canova by John Russel, 6th Duke of Bedford, who visited the sculptor in his studio in Rome in 1814, and was captivated by the group of the Three Graces which Canova had carved for the Empress Josephine, the estranged wife of Napoleon Bonaparte. She had died in May of that year, and the Duke offered to buy the group from Canova, but Josephine’s son claimed it, and that version is now in the Hermitage, St Petersburg.",
     "link": "https://sketchfab.com/3d-models/the-three-graces-437574a871ca4e56be5944d5f0390309"
+  },
+  {
+    "id": 3,
+    "path": "the_dying_gaul",
+    "info": "The Dying Gaul, Greek, Hellenistic about 225 BC. Artist: Epigonos (?). The original bronze originally stood at Athena temple in Pergamon. Roman copy. Rome Museo Capitolino. The Royal Cast Collection (Copenhagen, Denmark). Made with Memento Beta.",
+    "link": "https://sketchfab.com/3d-models/the-dying-gaul-a5f7d0f2934344e68a4e0734359d069e"
+  },
+  {
+    "id": 4,
+    "path": "psyche_with_the_jar",
+    "info": "Psyche with the jar (1806), (ref A26), Bertel Thorvaldsens, plaster, height: 1,32 m. Thorvaldsens museum (Copenhagen, Denmark). Made with Memento Beta (now ReMake) from AutoDesk. On this plaster, the wings are still not present but will be added on the final sculpture in marble.",
+    "link": "https://sketchfab.com/3d-models/psyche-with-the-jar-598b8e3a0d0945b8a7b7c2847a6960fa"
+  },
+  {
+    "id": 5,
+    "path": "bust_of_a_roman",
+    "info": "A roman, found in the Licinian Tomb in Rome, 150-160 A.D., Marble, Nye Carlsberg Glyptotek (Copenhagen, Denmark). Made with Memento Beta. This bearded man is shown with bare shoulders. The tousled hair and curly beards have been executed with a wealth of detail. He may have been member of the Licinian family from the 2nd century A.D.",
+    "link": "https://sketchfab.com/3d-models/bust-of-a-roman-c17ae64048004e0c97ebb2f1596eb8c8"
+  },
+  {
+    "id": 6,
+    "path": "adoratio",
+    "info": "Adoratio (1903 / 1909), marble, Stephan Sinding (1846 - 1922). Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made with Zephyr3D from 3Dflow. Made in very bad lighting condition and the sculpture was in a coner making the back and right side not accessible for photography.",
+    "link": "https://sketchfab.com/3d-models/adoratio-2c3533b213ad4e3e9c352edaf560a3d7"
+  },
+  {
+    "id": 7,
+    "path": "the_panther_hunter",
+    "info": "The panther hunter (1846), made by J.A. Jerichau (1816-1883), Nye Carlsberg Glyptotek (Copenhagen, Denmark). Made by Memento Beta (now ReMake) from AutoDesk.",
+    "link": "https://sketchfab.com/3d-models/the-panther-hunter-278d9c73ce6c487597ae344ec2042b1e"
+  },
+  {
+    "id": 8,
+    "path": "mermaid",
+    "info": "Mermaid (1921), Anne Marie Carl Nielsen (1863-1945), bronze, The National Gallery (Copenhagen, Denmark). Made with 210 pictures with Metashape from Agisoft.",
+    "link": "https://sketchfab.com/3d-models/mermaid-5db3c4c133904df6856b8323eea7d85a"
+  },
+  {
+    "id": 9,
+    "path": "siren",
+    "info": "The Siren (1889/1903) by Denys Puech (1854 - 1942). Ny Carlsberg Glyptotek (Copenhagen, Denmark). Made out 500 pictures with Zephyr3D from 3Dflow.",
+    "link": "https://sketchfab.com/3d-models/siren-fc2e5c773d1c49b19294cd87de5d3795"
+  },
+  {
+    "id": 10,
+    "path": "prayer",
+    "info": "Prayer (1886), Guillaume Charlier (1854 - 1925), marble. Royal Museum of Fine Art of Belgium. Made of 500 pictures with Zephyr3D Lite 3DFlow.",
+    "link": "https://sketchfab.com/3d-models/prayer-c2062105a84249c08df30b0ec7a54914"
   }
 ]
