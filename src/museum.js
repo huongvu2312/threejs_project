@@ -95,6 +95,7 @@ function init() {
           const distance =
             maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
           camera.position.z = distance;
+
           // Add info
           document.getElementById("model-content").innerHTML =
             modelInfo[0].info;
