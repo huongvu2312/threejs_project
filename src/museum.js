@@ -23,9 +23,6 @@ function init() {
    */
   scene = new THREE.Scene();
 
-  // Set the background color
-  scene.background = new THREE.Color("#F3E6D8");
-
   /**
    * CAMERA
    */
@@ -47,10 +44,12 @@ function init() {
   /**
    * LIGHT
    */
-  const mainLight = new THREE.DirectionalLight("white", 4);
+  // White directional light at half intensity shining from the top.
+  const mainLight = new THREE.DirectionalLight(0xffffff, 0.5);
   mainLight.position.set(10, 10, 10);
   scene.add(mainLight);
 
+  // This light globally illuminates all objects in the scene equally.
   const light = new THREE.AmbientLight(0x404040); // soft white light
   scene.add(light);
 
@@ -74,7 +73,6 @@ function init() {
       loader.load(
         "/assets/models/perseus_fighting_medusa/scene.gltf",
         function (gltf) {
-          // gltf.scene.scale.set(0.001, 0.001, 0.001);
           gltf.side = THREE.DoubleSide;
 
           // Calculate the bounding box of the model
