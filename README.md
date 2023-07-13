@@ -10,8 +10,8 @@ The format of the model is glTF (GL Transmission Format), the [recommended forma
 
 # Team members
 
-- Huong, Vu
-- Hien, Tran
+- Huong, Vu (s0575318)
+- Hien, Tran (s0584617)
 
 # Getting Started
 
@@ -28,6 +28,35 @@ The format of the model is glTF (GL Transmission Format), the [recommended forma
 
 `npx vite`
 
-- Go to http://localhost:5173/museum.html to see the website
+- Go to http://localhost:5173 to see the website
 
-## Note: The default link is a clone of an Miku dance example on threejs.
+## NOTE
+
+Loading background and model might take a lot of time, please wait until the model had shown. Contact Huong Vu or Hien Tran for support if the model hasn't shown up after 7 minutes.
+
+# Process
+
+## Achievements (can be seen in src/museum.js)
+
+- Create a scene
+- Render the scene
+- Add model to the scene
+- Remove model from the scene
+- Setup camera
+- Setup directional light and ambient light
+- Setup texture for background
+- Set model to be at the center of the scene
+- Render scene when window is resized
+- Set OrbitControls to zoom in/out and rotate the model
+- Non-Threejs achievements: fully designed museum website, model info is automatically updated when model is changed
+
+### Small achievement
+
+Successfully clone the [webgl_loader_mmd_audio](https://threejs.org/examples/?q=mmd#webgl_loader_mmd_audio) example from threejs website as a basic to learn about threejs. The clone website can be seen from http://localhost:5173/mikuDance.html
+
+## Challenges
+
+- Couldn't find the location of the model => Reason is the wrong position of camera
+- The model color was almost fully white => The light is too strong, need to reduce it
+- Canva size automatically increased to full screen when changing window size => Set the wrong size in setSize() function inside onWindowResize()
+- Struggled to move the model to center, changing all kind of data didn't work => Set a bounding box cover the whole model

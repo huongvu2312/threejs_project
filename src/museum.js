@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import modelInfo from "/assets/info.json" assert { type: "json" };
 
@@ -22,9 +23,6 @@ function init() {
    */
   scene = new THREE.Scene();
 
-  // Set the background color
-  scene.background = new THREE.Color("#F3E6D8");
-
   /**
    * CAMERA
    */
@@ -46,58 +44,73 @@ function init() {
   /**
    * LIGHT
    */
-  const mainLight = new THREE.DirectionalLight("white", 4);
+  // White directional light at half intensity shining from the top.
+  const mainLight = new THREE.DirectionalLight(0xffffff, 0.5);
   mainLight.position.set(10, 10, 10);
   scene.add(mainLight);
 
+  // This light globally illuminates all objects in the scene equally.
   const light = new THREE.AmbientLight(0x404040); // soft white light
   scene.add(light);
 
   /**
-   * MODEL
+   * BACKGROUND + MODEL
    */
-  loader = new GLTFLoader();
+  new RGBELoader()
+    .setPath("assets/textures/")
+    .load("thatch_chapel_4k.hdr", function (texture) {
+      texture.mapping = THREE.EquirectangularReflectionMapping;
 
-  // Load model
-  loader.load(
-    "/assets/models/perseus_fighting_medusa/scene.gltf",
-    function (gltf) {
-      // gltf.scene.scale.set(0.001, 0.001, 0.001);
-      gltf.side = THREE.DoubleSide;
-
-      // Calculate the bounding box of the model
-      const Bounding_Box = new THREE.Box3().setFromObject(gltf.scene);
-      const center = Bounding_Box.getCenter(new THREE.Vector3());
-
-      // Offset the model's position to center it
-      gltf.scene.position.sub(center);
-
-      // Add model to the scene
-      currentModel = gltf.scene;
-      scene.add(currentModel);
-
-      // Adjust the camera position to view the entire model
-      const maxDimension = Math.max(
-        Bounding_Box.max.x - Bounding_Box.min.x,
-        Bounding_Box.max.y - Bounding_Box.min.y,
-        Bounding_Box.max.z - Bounding_Box.min.z
-      );
-      const distance =
-        maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-      camera.position.z = distance;
-      // Add info
-      document.getElementById("model-content").innerHTML = modelInfo[0].info;
+      scene.background = texture;
+      scene.environment = texture;
 
       render();
-    },
 
-    function (xhr) {
-      console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-    },
-    function (error) {
-      console.error(error);
-    }
-  );
+      // model
+      loader = new GLTFLoader();
+
+      // Load model
+      loader.load(
+        "/assets/models/perseus_fighting_medusa/scene.gltf",
+        function (gltf) {
+          gltf.side = THREE.DoubleSide;
+
+          // Calculate the bounding box of the model
+          const Bounding_Box = new THREE.Box3().setFromObject(gltf.scene);
+          const center = Bounding_Box.getCenter(new THREE.Vector3());
+
+          // Offset the model's position to center it
+          gltf.scene.position.sub(center);
+
+          // Add model to the scene
+          currentModel = gltf.scene;
+          scene.add(currentModel);
+
+          // Adjust the camera position to view the entire model
+          const maxDimension = Math.max(
+            Bounding_Box.max.x - Bounding_Box.min.x,
+            Bounding_Box.max.y - Bounding_Box.min.y,
+            Bounding_Box.max.z - Bounding_Box.min.z
+          );
+          const distance =
+            maxDimension / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+          camera.position.z = distance;
+
+          // Add info
+          document.getElementById("model-content").innerHTML =
+            modelInfo[0].info;
+
+          render();
+        },
+
+        function (xhr) {
+          console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+        },
+        function (error) {
+          console.error(error);
+        }
+      );
+    });
 
   /**
    * RENDER
